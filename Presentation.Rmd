@@ -11,7 +11,7 @@ output:
     keep_tex: yes
     slide_level: 2
   slidy_presentation: default
-bibliography: ../library.bib
+bibliography: entropie.bib
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -84,7 +84,7 @@ Transfert des développement de la littérature sur la biodiversité à l'écono
 
 ## Définir le désordre
 
-A l'origine, Carnot (~1825)
+A l'origine, Carnot (1824)
 
 - Second principe de la thermodynamique.
 

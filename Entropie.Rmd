@@ -33,7 +33,7 @@ preamble: >
     \setlength{\parskip}{\bibitemsep}%
     \setlength{\itemsep}{\bibparskip}%
   }
-bibliography: ../library.bib
+bibliography: entropie.bib
 lang: french # english
 keywordlabel: Mots-clés # Keywords
 corrauthorlabel: Contact # Corresponding author
