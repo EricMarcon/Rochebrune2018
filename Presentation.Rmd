@@ -254,7 +254,7 @@ knitr::kable(ES02Cx[1:6, 1:2])
 
 Transformation simple : 
 
-(Maximum possible - Valeur) / (Valeur - 1)
+(Maximum possible - Valeur) / (Maximum possible - 1)
 
 ```{r s, echo=FALSE}
 CPnormalize <- function(CProfile, Max) {
