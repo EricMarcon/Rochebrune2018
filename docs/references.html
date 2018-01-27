@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie</title>
+  <meta name="description" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="conclusion.html">
+
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="methodes.html"><a href="methodes.html"><i class="fa fa-check"></i><b>2</b> Méthodes</a><ul>
+<li class="chapter" data-level="2.1" data-path="methodes.html"><a href="methodes.html#questions-similaires-et-notions-opposees"><i class="fa fa-check"></i><b>2.1</b> Questions similaires et notions opposées</a></li>
+<li class="chapter" data-level="2.2" data-path="methodes.html"><a href="methodes.html#donnees-et-notations"><i class="fa fa-check"></i><b>2.2</b> Données et notations</a></li>
+<li class="chapter" data-level="2.3" data-path="methodes.html"><a href="methodes.html#lentropie-comme-mesure-dincertitude"><i class="fa fa-check"></i><b>2.3</b> L’entropie comme mesure d’incertitude</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="methodes.html"><a href="methodes.html#entropie-de-shannon"><i class="fa fa-check"></i><b>2.3.1</b> Entropie de Shannon</a></li>
+<li class="chapter" data-level="2.3.2" data-path="methodes.html"><a href="methodes.html#entropie-generalisee"><i class="fa fa-check"></i><b>2.3.2</b> Entropie généralisée</a></li>
+<li class="chapter" data-level="2.3.3" data-path="methodes.html"><a href="methodes.html#de-lentropie-a-la-diversite"><i class="fa fa-check"></i><b>2.3.3</b> De l’entropie à la diversité</a></li>
+<li class="chapter" data-level="2.3.4" data-path="methodes.html"><a href="methodes.html#profils-de-diversite"><i class="fa fa-check"></i><b>2.3.4</b> Profils de diversité</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="methodes.html"><a href="methodes.html#la-decomposition-de-lentropie"><i class="fa fa-check"></i><b>2.4</b> La décomposition de l’entropie</a></li>
+<li class="chapter" data-level="2.5" data-path="methodes.html"><a href="methodes.html#diversite-jointe-information-mutuelle-et-redondance"><i class="fa fa-check"></i><b>2.5</b> Diversité jointe: information mutuelle et redondance</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html"><i class="fa fa-check"></i><b>3</b> Concentration spatiale et spécialisation</a><ul>
+<li class="chapter" data-level="3.1" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html#concentration-spatiale"><i class="fa fa-check"></i><b>3.1</b> Concentration spatiale</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html#ubiquite-et-concentration-absolue"><i class="fa fa-check"></i><b>3.1.1</b> Ubiquité et concentration absolue</a></li>
+<li class="chapter" data-level="3.1.2" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html#concentration-relative"><i class="fa fa-check"></i><b>3.1.2</b> Concentration relative</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html#specialisation"><i class="fa fa-check"></i><b>3.2</b> Spécialisation</a></li>
+<li class="chapter" data-level="3.3" data-path="concentration-spatiale-et-specialisation.html"><a href="concentration-spatiale-et-specialisation.html#tests-de-significativite"><i class="fa fa-check"></i><b>3.3</b> Tests de significativité</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="diversite-jointe.html"><a href="diversite-jointe.html"><i class="fa fa-check"></i><b>4</b> Diversité jointe</a><ul>
+<li class="chapter" data-level="4.1" data-path="diversite-jointe.html"><a href="diversite-jointe.html#diversite-specialisation-des-pays"><i class="fa fa-check"></i><b>4.1</b> Diversité (spécialisation) des pays</a></li>
+<li class="chapter" data-level="4.2" data-path="diversite-jointe.html"><a href="diversite-jointe.html#ubiquite-concentration-des-secteurs"><i class="fa fa-check"></i><b>4.2</b> Ubiquité (concentration) des secteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div>
+<p>Adelman, M. A. 1969. « Comment on the “H” Concentration Measure as a Numbers-Equivalent ». <em>The Review of Economics and Statistics</em> 51 (1): 99‑101. <a href="http://ideas.repec.org/a/tpr/restat/v51y1969i1p99-101.html" class="uri">http://ideas.repec.org/a/tpr/restat/v51y1969i1p99-101.html</a>.</p>
+</div>
+<div>
+<p>Alonso-Villar, Olga, et Coral Del Río. 2013. « Concentration of Economic Activity: An Analytical Framework ». <em>Regional Studies</em> 47 (5): 756‑72. doi:<a href="https://doi.org/10.1080/00343404.2011.587796">10.1080/00343404.2011.587796</a>.</p>
+</div>
+<div>
+<p>Amiti, Mary. 1997. « Specialisation Patterns in Europe ». Centre for Economic Performance.</p>
+</div>
+<div>
+<p>Baez, John C., Tobias Fritz, et Tom Leinster. 2011. « A characterization of entropy in terms of information loss ». <em>Entropy</em> 13 (11): 1945‑57. doi:<a href="https://doi.org/10.3390/e13111945">10.3390/e13111945</a>.</p>
+</div>
+<div>
+<p>Baldwin, Richard E., et Philippe Martin. 2004. « Agglomeration and regional growth ». In <em>Handbook of Urban and Regional Economics</em>, édité par J Vernon Henderson et Jacques-François Thisse. Amsterdam: Elsevier. North Holland. <a href="http://www.hec.unil.ch/deep/evenements/3c-combes1.pdf" class="uri">http://www.hec.unil.ch/deep/evenements/3c-combes1.pdf</a>.</p>
+</div>
+<div>
+<p>Bickenbach, Frank, Eckhardt Bode, et C. Krieger-Boden. 2013. « Closing the gap between absolute and relative measures of localization, concentration or specialization ». <em>Papers in Regional Science</em> 92 (3): 465‑80. doi:<a href="https://doi.org/10.1111/j.1435-5957.2012.00460.x">10.1111/j.1435-5957.2012.00460.x</a>.</p>
+</div>
+<div>
+<p>Bourguignon, François. 1979. « Decomposable Income Inequality Measures ». <em>Econometrica</em> 47 (4): 901‑20. doi:<a href="https://doi.org/10.2307/1914138">10.2307/1914138</a>.</p>
+</div>
+<div>
+<p>Brülhart, Marius, et Rolf Traeger. 2005. « An Account of Geographic Concentration Patterns in Europe ». <em>Regional Science and Urban Economics</em> 35 (6): 597‑624. doi:<a href="https://doi.org/10.1016/j.regsciurbeco.2004.09.002">10.1016/j.regsciurbeco.2004.09.002</a>.</p>
+</div>
+<div>
+<p>Ceriani, Lidia, et Paolo Verme. 2012. « The origins of the Gini index: extracts from Variabilità e Mutabilità (1912) by Corrado Gini ». <em>Journal of Economic Inequality</em> 10 (3): 421‑43. doi:<a href="https://doi.org/10.1007/s10888-011-9188-x">10.1007/s10888-011-9188-x</a>.</p>
+</div>
+<div>
+<p>Chao, Anne, Yi-Ting Wang, et Lou Jost. 2013. « Entropy and the species accumulation curve: a novel entropy estimator via discovery rates of new species ». <em>Methods in Ecology and Evolution</em> 4 (11): 1091‑1100. doi:<a href="https://doi.org/10.1111/2041-210x.12108">10.1111/2041-210x.12108</a>.</p>
+</div>
+<div>
+<p>Chapin, F. Stuart III, Erika S. Zavaleta, Valerie T. Eviner, Rosamond L. Naylor, Peter M. Vitousek, Heather L. Reynolds, David U. Hooper, et al. 2000. « Consequences of changing biodiversity ». <em>Nature</em> 405 (6783): 234‑42. doi:<a href="https://doi.org/10.1038/35012241">10.1038/35012241</a>.</p>
+</div>
+<div>
+<p>Combes, Pierre-Philippe, et L. Gobillon. 2015. « The empirics of agglomeration economies ». In <em>Handbook of Urban and Regional Economics</em>, édité par Gilles Duranton, J. Vernon Henderson, et William C. Strange, 5:247‑348. Amsterdam: Elsevier.</p>
+</div>
+<div>
+<p>Conceição, Pedro, et Pedro Ferreira. 2000. « The Young Person’s Guide to the Theil Index: Suggesting Intuitive Interpretations and Exploring Analytical Applications ». Austin, Texas. <a href="http://ssrn.com/paper=228703" class="uri">http://ssrn.com/paper=228703</a>.</p>
+</div>
+<div>
+<p>Cutrini, Eleonora. 2009. « Using entropy measures to disentangle regional from national localization patterns ». <em>Regional Science and Urban Economics</em> 39 (2): 243‑50. doi:<a href="https://doi.org/10.1016/j.regsciurbeco.2008.08.005">10.1016/j.regsciurbeco.2008.08.005</a>.</p>
+</div>
+<div>
+<p>———. 2010. « Specialization and Concentration from a Twofold Geographical Perspective: Evidence from Europe ». <em>Regional Studies</em> 44 (3): 315‑36. doi:<a href="https://doi.org/10.1080/00343400802378743">10.1080/00343400802378743</a>.</p>
+</div>
+<div>
+<p>Daróczy, Zoltán. 1970. « Generalized information functions ». <em>Information and Control</em> 16 (1): 36‑51. doi:<a href="https://doi.org/10.1016/s0019-9958(70)80040-7">10.1016/s0019-9958(70)80040-7</a>.</p>
+</div>
+<div>
+<p>Davis, H. T. 1941. <em>The theory of econometrics</em>. Bloomington, Indiana: The Principia Press.</p>
+</div>
+<div>
+<p>Dewar, Roderick C., et Annabel Porté. 2008. « Statistical mechanics unifies different ecological patterns ». <em>Journal of theoretical biology</em> 251 (3): 389‑403. doi:<a href="https://doi.org/10.1016/j.jtbi.2007.12.007">10.1016/j.jtbi.2007.12.007</a>.</p>
+</div>
+<div>
+<p>Ellison, Aaron M. 2010. « Partitioning diversity ». <em>Ecology</em> 91 (7): 1962‑3. doi:<a href="https://doi.org/doi:10.1890/09-1692.1">doi:10.1890/09-1692.1</a>.</p>
+</div>
+<div>
+<p>Ellison, Glenn, et Edward L Glaeser. 1997. « Geographic Concentration in U.S. Manufacturing Industries: A Dartboard Approach ». <em>Journal of Political Economy</em> 105 (5): 889‑927. doi:<a href="https://doi.org/10.1086/262098">10.1086/262098</a>.</p>
+</div>
+<div>
+<p>Faddeev, Dmitrii Konstantinovich. 1956. « On the concept of entropy of a finite probabilistic scheme ». <em>Uspekhi Mat. Nauk</em> 1 (67): 227‑31.</p>
+</div>
+<div>
+<p>Gini, Corrado. 1912. <em>Variabilità e mutabilità</em>. Bologna: C. Cuppini.</p>
+</div>
+<div>
+<p>Gregorius, Hans-Rolf. 1991. « On the concept of effective number ». <em>Theoretical population biology</em> 40 (2): 269‑83. <a href="http://www.ncbi.nlm.nih.gov/pubmed/1788824" class="uri">http://www.ncbi.nlm.nih.gov/pubmed/1788824</a>.</p>
+</div>
+<div>
+<p>———. 2010. « Linking Diversity and Differentiation ». <em>Diversity</em> 2 (3): 370‑94. doi:<a href="https://doi.org/10.3390/d2030370">10.3390/d2030370</a>.</p>
+</div>
+<div>
+<p>———. 2014. « Partitioning of diversity : the “within communities” component ». <em>Web Ecology</em> 14: 51‑60. doi:<a href="https://doi.org/10.5194/we-14-51-2014">10.5194/we-14-51-2014</a>.</p>
+</div>
+<div>
+<p>Havrda, Jan, et František Charvát. 1967. « Quantification method of classification processes. Concept of structural alpha-entropy ». <em>Kybernetika</em> 3 (1): 30‑35. <a href="https://eudml.org/doc/28681" class="uri">https://eudml.org/doc/28681</a>.</p>
+</div>
+<div>
+<p>Hill, M. O. 1973. « Diversity and Evenness: A Unifying Notation and Its Consequences ». <em>Ecology</em> 54 (2): 427‑32. doi:<a href="https://doi.org/10.2307/1934352">10.2307/1934352</a>.</p>
+</div>
+<div>
+<p>Hirschman, Albert O. 1964. « The Paternity of an Index ». <em>The American Economic Review</em> 54 (5): 761‑62. <a href="http://www.jstor.org/stable/1818582" class="uri">http://www.jstor.org/stable/1818582</a>.</p>
+</div>
+<div>
+<p>Houdebine, Michel. 1999. « Concentration Géographique des Activités et Spécialisation des Départements Français ». <em>Economie et Statistique</em> 326-327 (6-7): 189‑204.</p>
+</div>
+<div>
+<p>Hurlbert, Stuart H. 1971. « The Nonconcept of Species Diversity: A Critique and Alternative Parameters ». <em>Ecology</em> 52 (4): 577‑86. doi:<a href="https://doi.org/10.2307/1934145">10.2307/1934145</a>.</p>
+</div>
+<div>
+<p>Jost, Lou. 2006. « Entropy and diversity ». <em>Oikos</em> 113 (2): 363‑75. doi:<a href="https://doi.org/10.1111/j.2006.0030-1299.14714.x">10.1111/j.2006.0030-1299.14714.x</a>.</p>
+</div>
+<div>
+<p>———. 2007. « Partitioning diversity into independent alpha and beta components ». <em>Ecology</em> 88 (10): 2427‑39. doi:<a href="https://doi.org/10.1890/06-1736.1">10.1890/06-1736.1</a>.</p>
+</div>
+<div>
+<p>Kershaw, John A. Jr., Mark J. Ducey, Thomas W. Beers, et Bertram Husch. 2017. <em>Forest mensuration</em>. Wiley-Blackwell.</p>
+</div>
+<div>
+<p>Krugman, Paul. 1991. <em>Geography and Trade</em>. London: MIT Press.</p>
+</div>
+<div>
+<p>Kullback, S., et R. A. Leibler. 1951. « On Information and Sufficiency ». <em>The Annals of Mathematical Statistics</em> 22 (1): 79‑86.</p>
+</div>
+<div>
+<p>Levins, Richard. 1968. <em>Evolution in Changing Environments: Some Theoretical Explorations</em>. Princeton University Press.</p>
+</div>
+<div>
+<p>MacArthur, Robert H. 1965. « Patterns of species diversity ». <em>Biological Reviews</em> 40 (4): 510‑33. doi:<a href="https://doi.org/10.1111/j.1469-185X.1965.tb00815.x">10.1111/j.1469-185X.1965.tb00815.x</a>.</p>
+</div>
+<div>
+<p>Magurran, Anne E. 1988. <em>Ecological diversity and its measurement</em>. Princeton, NJ: Princeton University Press.</p>
+</div>
+<div>
+<p>Marcon, Eric. 2015. « Practical Estimation of Diversity from Abundance Data ». <em>HAL</em> 01212435 (version 2). <a href="https://hal-agroparistech.archives-ouvertes.fr/hal-01212435" class="uri">https://hal-agroparistech.archives-ouvertes.fr/hal-01212435</a>.</p>
+</div>
+<div>
+<p>———. 2017. <em>Mesures de la Biodiversité</em>. Kourou, France: UMR EcoFoG. <a href="https://hal-agroparistech.archives-ouvertes.fr/cel-01205813" class="uri">https://hal-agroparistech.archives-ouvertes.fr/cel-01205813</a>.</p>
+</div>
+<div>
+<p>Marcon, Eric, et Bruno Hérault. 2015a. « Decomposing Phylodiversity ». <em>Methods in Ecology and Evolution</em> 6 (3): 333‑39. doi:<a href="https://doi.org/10.1111/2041-210X.12323">10.1111/2041-210X.12323</a>.</p>
+</div>
+<div>
+<p>———. 2015b. « entropart, an R Package to Measure and Partition Diversity ». <em>Journal of Statistical Software</em> 67 (8): 1‑26. doi:<a href="https://doi.org/10.18637/jss.v067.i08">10.18637/jss.v067.i08</a>.</p>
+</div>
+<div>
+<p>Marcon, Eric, et Florence Puech. 2017. « A Typology of Distance-Based Measures of Spatial Concentration ». <em>Regional Science and Urban Economics</em> 62: 56‑67. doi:<a href="https://doi.org/10.1016/j.regsciurbeco.2016.10.004">10.1016/j.regsciurbeco.2016.10.004</a>.</p>
+</div>
+<div>
+<p>Marcon, Eric, Bruno Hérault, Christopher Baraloto, et Gabriel Lang. 2012. « The Decomposition of Shannon’s Entropy and a Confidence Interval for Beta Diversity ». <em>Oikos</em> 121 (4): 516‑22. doi:<a href="https://doi.org/10.1111/j.1600-0706.2011.19267.x">10.1111/j.1600-0706.2011.19267.x</a>.</p>
+</div>
+<div>
+<p>Marcon, Eric, Ivan Scotti, Bruno Hérault, Vivien Rossi, et Gabriel Lang. 2014. « Generalization of the Partitioning of Shannon Diversity ». <em>Plos One</em> 9 (3): e90289. doi:<a href="https://doi.org/10.1371/journal.pone.0090289">10.1371/journal.pone.0090289</a>.</p>
+</div>
+<div>
+<p>Marshall, A. 1890. <em>Principle of Economics</em>. London: Macmillan.</p>
+</div>
+<div>
+<p>Mendes, R. S., L. R. Evangelista, S. M. Thomaz, A. A. Agostinho, et L. C. Gomes. 2008. « A unified index to measure ecological diversity and species rarity ». <em>Ecography</em> 31 (4): 450‑56. doi:<a href="https://doi.org/10.1111/j.0906-7590.2008.05469.x">10.1111/j.0906-7590.2008.05469.x</a>.</p>
+</div>
+<div>
+<p>Mori, Tomoya, Koji Nishikimi, et Tony E. Smith. 2005. « A Divergence Statistic for Industrial Localization ». <em>The Review of Economics and Statistics</em> 87 (4): 635‑51. doi:<a href="https://doi.org/10.1162/003465305775098170">10.1162/003465305775098170</a>.</p>
+</div>
+<div>
+<p>Ottaviano, Gianmarco I. P., et Diego Puga. 1998. « Agglomeration in the global economy: A survey of the new economic geography ». <em>The World Economy</em> 21 (6): 707‑31. doi:<a href="https://doi.org/10.1111/1467-9701.00160">10.1111/1467-9701.00160</a>.</p>
+</div>
+<div>
+<p>Pavoine, Sandrine, Eric Marcon, et Carlo Ricotta. 2016. « ‘Equivalent numbers’ for species, phylogenetic or functional diversity in a nested hierarchy of multiple scales ». <em>Methods in Ecology and Evolution</em> 7 (10): 1152‑63. doi:<a href="https://doi.org/10.1111/2041-210X.12591">10.1111/2041-210X.12591</a>.</p>
+</div>
+<div>
+<p>Peet, Robert K. 1974. « The measurement of species diversity ». <em>Annual review of ecology and systematics</em> 5: 285‑307. <a href="http://www.jstor.org/stable/2096890" class="uri">http://www.jstor.org/stable/2096890</a>.</p>
+</div>
+<div>
+<p>Pielou, Evelyn C. 1975. <em>Ecological Diversity</em>. New York: Wiley.</p>
+</div>
+<div>
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.r-project.org" class="uri">http://www.r-project.org</a>.</p>
+</div>
+<div>
+<p>Rényi, Alfréd. 1961. « On Measures of Entropy and Information ». In <em>4th Berkeley Symposium on Mathematical Statistics and Probability</em>, édité par Jerzy Neyman, 1:547‑61. Berkeley, USA: University of California Press.</p>
+</div>
+<div>
+<p>Richard-Hansen, Cécile, Gaëlle Jaouen, Thomas Denis, Olivier Brunaux, Eric Marcon, et Stéphane Guitet. 2015. « Landscape patterns influence communities of medium- to large-bodied vertebrate in undisturbed terra firme forests of French Guiana ». <em>Journal of Tropical Ecology</em> 31 (5): 423‑36. doi:<a href="https://doi.org/10.1017/S0266467415000255">10.1017/S0266467415000255</a>.</p>
+</div>
+<div>
+<p>Rysman, Marc, et Shane Greenstein. 2005. « Testing for agglomeration and dispersion ». <em>Economics Letters</em> 86: 405‑11. doi:<a href="https://doi.org/10.1016/j.econlet.2004.07.021">10.1016/j.econlet.2004.07.021</a>.</p>
+</div>
+<div>
+<p>Shannon, Claude E. 1948. « A Mathematical Theory of Communication ». <em>The Bell System Technical Journal</em> 27: 379‑423, 623‑56.</p>
+</div>
+<div>
+<p>Sharp, Kim, et Franz Matschinsky. 2015. « Translation of Ludwig Boltzmann’s paper “on the relationship between the second fundamental theorem of the mechanical theory of heat and probability calculations regarding the conditions for thermal equilibrium” ». <em>Entropy</em> 17 (4): 1971‑2009. doi:<a href="https://doi.org/10.3390/e17041971">10.3390/e17041971</a>.</p>
+</div>
+<div>
+<p>Shorrocks, A. F. 1980. « The Class of Additively Decomposable Inequality Measures ». <em>Econometrica</em> 48 (3): 613. doi:<a href="https://doi.org/10.2307/1913126">10.2307/1913126</a>.</p>
+</div>
+<div>
+<p>Simpson, E. H. 1949. « Measurement of diversity ». <em>Nature</em> 163 (4148): 688.</p>
+</div>
+<div>
+<p>Theil, H. 1967. <em>Economics and Information Theory</em>. Chicago: Rand McNally &amp; Company.</p>
+</div>
+<div>
+<p>Tothmeresz, Béla. 1995. « Comparison of different methods for diversity ordering ». <em>Journal of Vegetation Science</em> 6 (2): 283‑90. doi:<a href="https://doi.org/10.2307/3236223">10.2307/3236223</a>.</p>
+</div>
+<div>
+<p>Tsallis, Constantino. 1988. « Possible generalization of Boltzmann-Gibbs statistics ». <em>Journal of Statistical Physics</em> 52 (1): 479‑87. doi:<a href="https://doi.org/10.1007/BF01016429">10.1007/BF01016429</a>.</p>
+</div>
+<div>
+<p>———. 1994. « What are the numbers that experiments provide? » <em>Química Nova</em> 17 (6): 468‑71. <a href="http://quimicanova.sbq.org.br/detalhe{\_}artigo.asp?id=5517" class="uri">http://quimicanova.sbq.org.br/detalhe{\_}artigo.asp?id=5517</a>.</p>
+</div>
+<div>
+<p>Weber, Alfred. 1909. <em>Über den Standort der Industrien</em>. Tübingen. English translation edited in 1971, « Theory of the location of industries », Russell &amp; Russell.</p>
+</div>
+<div>
+<p>Whittaker, R. H. 1960. « Vegetation of the Siskiyou Mountains, Oregon and California ». <em>Ecological Monographs</em> 30 (3): 279‑338. doi:<a href="https://doi.org/10.2307/1943563">10.2307/1943563</a>.</p>
+</div>
+<div>
+<p>Wilson, Edward O., et Frances M. Peter, éd. 1988. <em>Biodiversity</em>. Washington, D.C.: The National Academies Press. <a href="http://www.nap.edu/openbook.php?record{\_}id=989" class="uri">http://www.nap.edu/openbook.php?record{\_}id=989</a>.</p>
+</div>
+<div>
+<p>Wright, Sewall. 1931. « Evolution in Mendelian Populations ». <em>Genetics</em> 16 (2): 97‑159. <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1201091{\&amp;}tool=pmcentrez{\&amp;}rendertype=abstract" class="uri">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1201091{\&amp;}tool=pmcentrez{\&amp;}rendertype=abstract</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

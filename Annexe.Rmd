@@ -1,0 +1,240 @@
+---
+title: "Mesure de la biodiversité et de la structuration spatiale de l'activité économique par l'entropie : Annexe"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(cache=TRUE, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=70), out.width='70%', fig.align='center', crop=TRUE)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+```
+Cette annexe contient:
+
+- le code nécessaire pour reproduire l'ensemble des résultats et des figures de l'article;
+
+- deux figures supplémentaires représentant les tailles relatives des secteurs économiques et des pays;
+
+- le détail du test de significativité de la spécialisation de l'Italie.
+
+## Données
+
+Les données sont un tableau de contingence contenant le nombre d'employés par secteur industriel (en lignes) et par pays (en colonnes).
+
+```{r data, warning=FALSE}
+ES02Cx <- matrix(c(
+71924, 85083, 82510, 101575, 591468, 54896, 13827, 99482, 316141, 34627, 511130, 53238, 93254, 10526, 389447, 40054, 21647, 121943, 47741, 369885, 89958, 155573, 56948, 34427, 365056,
+9319, 9814, 13298, 15301, 71327, 4523, 1516, 9001, 46813, 3260, 58383, 7105, 13301, 717, 37855, 3528, 2421, 6727, 3653, 22997, 14840, 17168, 5205, 4976, 36166,
+8665, 17329, 12914, 25983, 73448, 3951, 4452, 7366, 40050, 3122, 38896, 4192, 14293, 274, 121725, 9061, 2962, 12130, 2734, 54119, 42995, 35531, 5297, 7202, 51477,
+6212, 3495, 99974, 25717, 35275, 1611, 6052, 14148, 42550, 2214, 46451, 15480, 21528, 120, 196877, 20293, 9300, 3473, 1531, 87121, 88345, 156210, 1348, 15792, 28524,
+32762, 11271, 17263, 54290, 92412, 9630, 17191, 5867, 47595, 19797, 62165, 16063, 18022, 209, 107122, 22886, 25302, 13351, 13167, 126243, 28516, 56722, 33475, 25076, 69484,
+17078, 11044, 10353, 20102, 150984, 6027, 1430, 7428, 42950, 19590, 64717, 4277, 14162, 47, 70408, 4255, 1376, 17242, 2989, 57602, 10198, 12949, 31239, 6921, 55549,
+11683, 16542, 9001, 23224, 114394, 7762, 3017, 9096, 59256, 8111, 66027, 7896, 16740, 759, 80040, 4535, 3503, 22283, 5790, 51282, 15145, 15955, 14702, 5806, 116408,
+16985, 44267, 14012, 29808, 384357, 16766, 2553, 10841, 82762, 12716, 148362, 5975, 15003, 226, 105484, 5457, 2795, 43792, 9204, 74233, 11862, 22862, 20415, 8437, 95611,
+29391, 22633, 28565, 86554, 445576, 15956, 3998, 11254, 89937, 12855, 146456, 10533, 48440, 319, 170116, 8761, 3057, 30964, 4817, 186316, 25292, 57262, 22446, 31953, 165499,
+31438, 27494, 21613, 58816, 218474, 16056, 4396, 15024, 84791, 13180, 113602, 11918, 24760, 744, 158860, 8715, 5427, 21101, 10291, 128566, 39003, 38980, 19492, 16595, 75888,
+35485, 24835, 12025, 45314, 296109, 5918, 528, 8385, 57516, 14208, 76342, 4051, 17358, 1939, 117996, 633, 1306, 19596, 9912, 65693, 7684, 29969, 32637, 22488, 65687,
+74471, 54621, 56847, 189295, 754724, 41021, 12949, 26970, 222220, 40224, 311044, 30885, 76704, 1614, 498814, 14684, 10676, 89908, 24462, 301566, 80265, 91106, 77264, 74020, 338466,
+22833, 10731, 9610, 43389, 334588, 19935, 5633, 2802, 26217, 24249, 132168, 5165, 44558, 86, 96534, 3483, 1817, 26380, 8394, 60332, 9370, 31880, 21245, 14595, 108890,
+43678, 15157, 21547, 101180, 470442, 13189, 5449, 6703, 60208, 16826, 109277, 10451, 40214, 207, 151682, 4840, 2684, 20175, 8131, 99629, 18576, 40020, 25542, 31371, 86750,
+79693, 30781, 31487, 127758, 1173382, 68554, 3896, 9746, 99514, 44950, 178760, 11422, 61830, 991, 450846, 6064, 3657, 80751, 23334, 120209, 22379, 51503, 73428, 40740, 181438,
+30738, 29556, 21021, 159126, 924459, 4843, 3300, 1798, 144252, 7195, 223319, 2591, 88571, 78, 159836, 4511, 1843, 20295, 2649, 177137, 33610, 165951, 70391, 66519, 149171,
+27707, 12467, 21813, 26141, 116832, 10825, 7929, 9802, 54801, 6669, 47063, 9777, 17850, 345, 131587, 27724, 6811, 23188, 5305, 167975, 29877, 63173, 15140, 13879, 80728,
+17872, 8753, 10219, 39933, 178913, 12566, 2335, 8513, 40555, 4340, 84430, 3772, 27074, 805, 119175, 7657, 2406, 18554, 3722, 55933, 13631, 16740, 11962, 8847, 80505,
+27458, 19166, 17366, 50475, 230049, 12794, 4818, 13510, 77271, 19656, 193286, 11236, 21448, 1331, 160875, 8953, 5816, 46093, 21610, 128794, 20362, 30017, 21069, 17277, 110841),
+nrow = 19, ncol = 25, byrow = TRUE)
+rownames(ES02Cx) <- c("C10", "C11", "C13", "C14", "C16", "C17", "C18", "C20", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C31", "C32", "C33")
+colnames(ES02Cx) <- c("AT", "BE", "BG", "CZ", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "HR", "HU", "IS", "IT", "LT", "LV", "NL", "NO", "PL", "PT", "RO", "SE", "SK", "UK")
+```
+## Tailles relatives des secteurs et des pays
+
+Les tailles relatives des secteurs et des pays sont représentés ici:
+
+```{r secteurs, fig.cap="Taille relative des secteurs.", out.width='70%'}
+library("ggplot2")
+# Données
+df <- data.frame(class=rownames(ES02Cx), n=rowSums(ES02Cx))
+# Camembert
+pie <- ggplot(df, aes(x = "", y = n, fill = factor(class))) + 
+  geom_bar(width = 1, stat = "identity") +
+  labs(fill="Secteur", 
+       x=NULL, 
+       y=NULL)
+# Palette de couleurs
+library("RColorBrewer")
+getPalette <- colorRampPalette(RColorBrewer::brewer.pal(8, "Accent"))
+fill <- scale_fill_manual(values = getPalette(ncol(ES02Cx)))
+# Affichage en coordonnées polaires
+coords <- coord_polar(theta = "y", start=0, direction = -1)
+# Figure
+pie + coords + fill
+```
+
+```{r pays, fig.cap="Taille relative des pays.", out.width='70%'}
+# Données
+df <- data.frame(class=colnames(ES02Cx), n=colSums(ES02Cx))
+# Camembert
+pie <- ggplot(df, aes(x = "", y = n, fill = factor(class))) + 
+  geom_bar(width = 1, stat = "identity") +
+  labs(fill="Pays", 
+       x=NULL, 
+       y=NULL)
+# Figure
+pie + coords + fill
+```
+
+## Figures de l'article
+
+Code pour créer les figures.
+
+### Figure 1
+
+```{r uC}
+library("entropart")
+# Profils d'ubiquité des secteurs C10, C20 et industrie entière
+upC10 <- CommunityProfile(Diversity, as.AbdVector(ES02Cx["C10", ]), Correction="None")
+upC20 <- CommunityProfile(Diversity, as.AbdVector(ES02Cx["C20", ]), Correction="None")
+upC <- CommunityProfile(Diversity, colSums(ES02Cx), Correction="None")
+# Figure
+plot(upC, ylim = c(min(upC20$y),max(upC20$y)), xlab="Ordre", ylab="Ubiquité absolue")
+lines(upC10, col="green", lty=2, lwd=2)
+lines(upC20, col="blue", lty=3, lwd=2)
+```
+
+### Figure 2
+
+```{r cC}
+# Fonction intermédiaire pour la normalisation des profils
+CPnormalize <- function(CProfile, Max) {
+  # Copie du profil
+  NormalizedCP <- CProfile
+  # Normalisation des valeurs
+  NormalizedCP$y <- (Max-CProfile$y)/(Max-1)
+  # Normalisation des bornes de l'enveloppe si elles existent
+  if (!is.null(CProfile$high)) NormalizedCP$low <- (Max-CProfile$high)/(Max-1)
+  if (!is.null(CProfile$low)) NormalizedCP$high <- (Max-CProfile$low)/(Max-1)
+  return(NormalizedCP)
+}
+# Valeur maximale possible: nombre de pays
+uMax <- ncol(ES02Cx)
+# Profils de concentration: normalisation des profils d'ubiquité
+cpC10 <- CPnormalize(upC10, uMax)
+cpC20 <- CPnormalize(upC20, uMax)
+cpC <- CPnormalize(upC, uMax)
+# Figure
+plot(cpC, ylim = c(min(cpC20$y),max(cpC20$y)), xlab="Ordre", ylab="Concentration absolue")
+lines(cpC10, col="green", lty=2, lwd=2)
+lines(cpC20, col="blue", lty=3, lwd=2)
+```
+
+### Figure 3
+
+```{r d}
+# Profils de diversité 
+dpIT <- CommunityProfile(Diversity, as.AbdVector(ES02Cx[, "IT"]), Correction="None")
+dpDE <- CommunityProfile(Diversity, as.AbdVector(ES02Cx[, "DE"]), Correction="None")
+dpFR <- CommunityProfile(Diversity, as.AbdVector(ES02Cx[, "FR"]), Correction="None")
+dpIS <- CommunityProfile(Diversity, as.AbdVector(ES02Cx[, "IS"]), Correction="None")
+dpEurope <- CommunityProfile(Diversity, rowSums(ES02Cx), Correction="None")
+# Figure
+plot(dpEurope, ylim=c(min(dpIS$y), max(dpEurope$y)), xlab="Ordre", ylab="Diversité")
+lines(dpIT, col="green", lty=2, lwd=2)
+lines(dpDE, col="blue", lty=3, lwd=2)
+lines(dpFR, col="orange", lty=4, lwd=2)
+lines(dpIS, col="black", lty=5, lwd=2)
+```
+
+### Figure 4:
+
+```{r s}
+# Valeur maximale possible
+dMax <- nrow(ES02Cx)
+# Profils de spécialisation : normalisation des profils de diversité
+spIT <- CPnormalize(dpIT, dMax)
+spDE <- CPnormalize(dpDE, dMax)
+spFR <- CPnormalize(dpFR, dMax)
+spIS <- CPnormalize(dpIS, dMax)
+spEurope <- CPnormalize(dpEurope, dMax)
+# Figure
+plot(spEurope, ylim = c(0, 1), xlab="Ordre", ylab="Spécialisation absolue")
+lines(spIT, col="green", lty=2, lwd=2)
+lines(spDE, col="blue", lty=3, lwd=2)
+lines(spFR, col="orange", lty=4, lwd=2)
+lines(spIS, col="black", lty=5, lwd=2)
+```
+
+
+### Figure 5
+
+```{r dd}
+# Création d'une metacommunauté
+ES02CMC <- MetaCommunity(ES02Cx, Weights = colSums(ES02Cx))
+# Calcul des diversités alpha, beta, gamma
+dpES02CMC <- DivProfile(, ES02CMC)
+# Diversité jointe
+Djointe <- CommunityProfile(Diversity, as.ProbaVector(ES02Cx))
+# Redondance
+RedondanceD <- Djointe$y/dpES02CMC$GammaDiversity
+# Figure
+plot(Djointe, log="y", ylim = c(1, max(Djointe$y)), xlab="Ordre", ylab="Diversité")
+lines(x=dpES02CMC$Order, y=dpES02CMC$TotalAlphaDiversity, col="blue", lty=2, lwd=2)
+lines(x=dpES02CMC$Order, y=dpES02CMC$TotalBetaDiversity, col="red", lty=3, lwd=2)
+lines(x=dpES02CMC$Order, y=dpES02CMC$GammaDiversity, col="green", lty=4, lwd=2)
+lines(x=dpES02CMC$Order, y=RedondanceD, col="red", lty=5, lwd=2)
+```
+
+### Figure 6
+
+```{r du}
+# Création d'une metacommunauté
+ES02CtMC <- MetaCommunity(t(ES02Cx), Weights = rowSums(ES02Cx))
+# Calcul des diversités alpha, beta, gamma
+dpES02CtMC <- DivProfile(, ES02CtMC)
+# Redondance
+RedondanceU <- Djointe$y/dpES02CtMC$GammaDiversity
+# Figure
+plot(Djointe, log="y", ylim = c(1, max(Djointe$y)), xlab="Ordre", ylab="Ubiquité")
+lines(x=dpES02CtMC$Order, y=dpES02CtMC$TotalAlphaDiversity, col="blue", lty=2, lwd=2)
+lines(x=dpES02CtMC$Order, y=dpES02CtMC$TotalBetaDiversity, col="red", lty=3, lwd=2)
+lines(x=dpES02CtMC$Order, y=dpES02CtMC$GammaDiversity, col="green", lty=4, lwd=2)
+lines(x=dpES02CtMC$Order, y=RedondanceU, col="red", lty=5, lwd=2)
+```
+
+
+## Test de la spécialisation de l'Italie
+
+Le test consiste à simuler 1000 distributions multinomiales respectant les probabilités des secteurs au niveau de l'Europe entière.
+La statistique de test est la diversité absolue.
+Sa valeur réelle, calculée pour l'Italie, est comparée aux quantiles de ses valeurs simulées.
+
+```{r}
+# Ordres à calculer
+q.seq=seq(from=0, to=2, by=0.1)
+# Nombre de simulations
+NbSimulations<- 1000
+# Tirage
+SimsIT <- rmultinom(NbSimulations, size=sum(ES02Cx[, "IT"]), prob=rowSums(ES02Cx))
+# Profil de diversité de chaque simulation
+Simulations <- apply(SimsIT, 2, function(Ns) sapply(q.seq, function(q) Diversity(Ns, q, Correction="None", CheckArguments = FALSE)))
+rownames(Simulations) <- seq(0, 2, 0.1)
+# Seuil de risque
+alpha <- 0.01
+# Calcul des quantiles
+Quantiles <- apply(Simulations, 1, quantile, probs = c(alpha/2, 1-alpha/2))
+Median <- apply(Simulations, 1, median)
+# Création d'un profil
+cpSimulations <- as.CommunityProfile(x=q.seq, y=Median, low=Quantiles[1,], high=Quantiles[2,])
+# Figure
+plot(cpSimulations)
+CEnvelope(dpIT, col="red", lty=3)
+```
+
+La figure montre la distribution simulée de la diversité sur la courbe noire, qui en est la valeur médiane entourée de son intervalle de confiance à 99% (l'enveloppe au seuil de confiance de 95% est confondue avec l'épaisseur du trait de la valeur médiane).
+La courbe rouge pointillée correspond à la diversité observée de l'Italie, hors de l'enveloppe des simulations dès l'ordre $q=0.1$.
+
+Le test peut être appliqué à chaque valeur de $q$: l'hypothèse nulle est rejetée si la statistique observée est inférieure à la borne inférieure de l'enveloppe des simulations.
+
+```{r}
+# La diversité observée est-elle inférieure à la limite inférieure de l'envelope ?
+dpIT$y < cpSimulations$low
+```

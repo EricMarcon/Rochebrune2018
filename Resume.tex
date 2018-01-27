@@ -1,0 +1,225 @@
+\documentclass[a4paper]{article}
+
+
+\usepackage{natbib} % Bibliographie avancée (parenthèses, citep...). Avant babel.
+
+%% Language and font encodings
+\usepackage[english, french]{babel}
+  \frenchbsetup{StandardLists=true} % à inclure si on utilise \usepackage[french]{babel} ou les puces seront des tirets cadratins
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{nicefrac}
+\usepackage{epstopdf} % Figures eps
+\usepackage{enumitem} % Espacement dans les listes
+  \setlist[itemize]{noitemsep,nolistsep}
+  \setlist[enumerate]{noitemsep,nolistsep}
+
+% Notation diversité (ex.: \xq[\,]{D}{q}{\matrixsym{Z}}{\alpha})
+\newcommand*{\xq}[6][]{
+  {#1^{#3}_{#6}\!#2^{#4}_{#5}}
+}
+% Dérivée
+\newcommand{\deriv}{\mathrm{d}}
+
+
+\title{Mesure de la biodiversité et de la structuration spatiale de l'activité économique par l'entropie}
+\author{Eric Marcon, Florence Puech}
+
+\begin{document}
+\selectlanguage{french}
+
+
+\maketitle
+
+% \begin{abstract}
+% Your abstract.
+% \end{abstract}
+
+\section{Introduction}
+
+Le terme \og entropie\fg{} a été introduit par Clausius en 1865 pour sa nouvelle formulation du second principe de la thermodynamique énoncé par Carnot 40 ans plus tôt.
+Son étymologie grecque signifie transformation parce que le second principe concerne la variation d'entropie.
+Boltzmann a relié l'entropie d'un système au nombre possible de ses états en 1877.
+\cite{Shannon1948} a enfin montré que le nombre d'états possibles d'un système était analogue au nombre de messages d'une longueur choisie pouvant être créés en assemblant les lettres d'un alphabet dont les fréquences des lettres sont fixées.
+La célèbre entropie de Shannon est, à une constante près, égale à celle de Boltzmann normalisée par la longueur du message, dont elle est indépendante.
+Cette propriété fondamentale lui permet de décrire la complexité d'un système non seulement par le nombre possible de ses états, mais plus simplement par la fréquence relative de ses composants.
+La théorie de l'information était née, les origines thermodynamiques rapidement oubliées, mais pas la physique statistique qui a généralisé les travaux de Boltzmann à des systèmes imparfaits \citep{Tsallis1988}.
+
+L'entropie de Shannon est la base de toutes les mesures de diversité présentées ici.
+Son application à la diversité biologique, devenue biodiversité \citep{Wilson1988}, est fondamentale.
+Parallèlement, en économie, \cite{Theil1967} développait des mesures d'inégalité et de concentration spatiales: l'indice de Theil est l'écart entre l'entropie de Shannon et son maximum possible, mais les développements méthodologiques ultérieurs sont restés en retrait de ceux de la mesure de la biodiversité.
+
+L'objectif de cet article est transférer à la discipline de l'économie géographique les derniers développements de la mesure de la biodiversité pour compléter ses définitions de concentration spatiale et spécialisation, apporter des méthodes de mesure plus efficaces sur le plan empirique comme des estimateurs à biais réduit quand seulement un échantillon des données est disponible, et des solutions à une partie des problèmes classiques soulevés par ces approches, notamment celui la MAUP \citep[\foreignlanguage{english}{\emph{Modifiable Areal Unit Problem}}]{Openshaw1979}, c'est-à-dire la sensibilité des mesures à l'échelle d'observation.
+Les emprunts très nombreux de méthodes entre disciplines éloignées seront montrés.
+
+
+\section{La diversité définie comme quantité d'information}
+
+\subsection{Entropie et théorie de l'information}
+
+Les textes fondateurs sont \cite{Davis1941} et surtout \cite{Theil1967} en économétrie, et Shannon \citep{Shannon1948, Shannon1963} pour la mesure de la diversité.
+Une revue est fournie par \cite{Maasoumi1993}.
+
+Considérons une expérience dont les résultats possibles sont $\left\{r_1,r_2,\dots ,\ r_S\right\}$.
+La probabilité d'obtenir $r_s$ est $p_s$, et ${\mathcal P}\allowbreak=\left\{p_1,p_2,\dots,p_S\right\}$.
+Les probabilités sont connues \emph{a priori}.
+Tout ce qui suit est vrai aussi pour des valeurs de $r$ continues, dont on connaîtrait la densité de probabilité.
+
+On considère maintenant un échantillon de valeurs de $r$.
+La présence de $r_s$ dans l'échantillon est peu étonnante si $p_s$ est grande: elle apporte peu d'information supplémentaire par rapport à la simple connaissance des probabilités.
+En revanche, si $p_s$ est petite, la présence de $r_s$ est surprenante.
+On définit donc une fonction d'information, $I(p_s)$, décroissante quand la probabilité augmente, de $I(0)=+\infty $ (ou éventuellement une valeur strictement positive finie) à $I(1)=0$.
+Chaque valeur observée dans l'échantillon apporte une certaine quantité d'information, dont la somme est l'information de l'échantillon.
+\cite{Patil1982} appellent l'information \og rareté\fg{}.
+
+La quantité d'information attendue de l'expérience est $\sum^S_{s=1}{p_s I(p_s) = H({\mathcal P})}$.
+Si on choisit $I\left(p_s\right)=-\ln\left(p_s\right)$, $H\left({\mathcal P}\right)$ est l'indice de Shannon, mais bien d'autres formes de $I\left(p_s\right)$ sont possibles.
+$H\left({\mathcal P}\right)$ est appelée \emph{entropie}.
+C'est une mesure de l'incertitude (de la volatilité) du résultat de l'expérience.
+Si le résultat est certain (une seule valeur $p_S$ vaut 1), l'entropie est nulle.
+L'entropie est maximale quand les résultats sont équiprobables.
+
+
+
+
+\subsection{Application à la biodiversité}
+
+\cite{MacArthur1955} est le premier à avoir introduit la théorie de l'information en écologie \citep{Ulanowicz2001}.
+MacArthur s'intéressait aux réseaux trophiques et cherchait à mesurer leur stabilité: l'indice de Shannon qui comptabilise le nombre de relations possibles lui paraissait une bonne façon de l'évaluer. 
+Mais l'efficacité implique la spécialisation, ignorée par l'entropie qui est une mesure neutre (toutes les espèces y jouent le même rôle).
+MacArthur a abandonné cette voie.
+
+Les premiers travaux consistant à généraliser l'indice de Shannon sont dus à \cite{Renyi1961}.
+La biodiversité sera abordée ici en termes d'espèces pour la simplicité de l'exposé, sans perte de généralité : les mêmes méthodes s'appliquent à la diversité génétique par exemple.
+L'entropie d'ordre $q$ de Rényi utilise une fonction d'information paramétrique dans laquelle le paramètre $q$, librement choisi, donne une importance d'autant  plus grande aux espèces rares qu'il est petit.
+L'entropie de Rényi d'ordre 0 est la richesse, c'est-à-dire le nombre d'espèces (précisément, ce nombre moins 1), l'entropie d'ordre 1 est celle de Shannon et l'entropie d'ordre 2, l'indice de diversité de \cite{Simpson1949}.
+
+\cite{Hill1973} transforme l'entropie de Rényi en \emph{nombres de Hill}, qui en sont simplement l'exponentielle.
+Le souci de Hill était de rendre les indices de diversité intelligibles après l'article remarqué de \cite{Hurlbert1971} intitulé \og le non-concept de diversité spécifique\fg{}.
+Hurlbert reprochait à la littérature sur la diversité sa trop grande abstraction et son éloignement des réalités biologiques, notamment en fournissant des exemples dans lesquels l'ordre des communautés n'est pas le même selon l'indice de diversité choisi.
+Les nombres de Hill sont le nombre d'espèces équiprobables donnant la même valeur de diversité que la distribution observée.
+
+
+Ces résultats avaient déjà été obtenus avec une autre approche par \cite{MacArthur1965} et repris par \cite{Adelman1969} dans la littérature économique.
+
+Les nombres de Hill sont des \og nombres effectifs\fg{} ou \og nombres équivalents{}\fg{}.
+Le concept a été défini rigoureusement par \cite{Gregorius1991}, d'après \cite{Wright1931} (qui avait le premier défini la taille effective d'une population): étant donné une variable caractéristique (ici, l'entropie) fonction seulement d'une variable numérique (ici, le nombre d'espèces) dans un cas idéal (ici, l'équiprobabilité des espèces), le nombre effectif est la valeur de la variable numérique pour laquelle la variable caractéristique est celle du jeu de données.
+
+
+\subsection{Biais d'estimation}
+
+L'entropie est définie comme la somme pondérée sur toutes les espèces de l'information.
+Dans des systèmes très divers comme la forêt tropicale, inventorier la totalité des espèces est en général impossible.
+Estimer le nombre d'espèces total par le nombre d'espèces échantillonnées est évidemment incorrect: l'estimation du nombre d'espèces non observées a généré une abondante littérature \citep{Chao2004}.
+
+Le problème concerne toutes les mesures de diversité: il n'est pas lié à un échantillonnage défaillant mais simplement à une variabilité inévitable et à l'impossibilité d'augmenter indéfiniment l'effort d'échantillonnage.
+Sa conséquence est une sous-estimation de la diversité, appelée \og biais d'estimation\fg{} par \cite{Dauby2012}.
+
+Les espèces rares ont un rôle central dans le biais d'estimation parce qu'elles sont plus difficiles à observer.
+Les mesures de diversité qui leur donnent une grande importance (l'exemple le plus simple est la richesse spécifique) sont plus biaisées que les mesures qui ne prennent en compte que les espèces dominantes (comme l'indice de Simpson).
+
+
+\subsection{Entropie HCDT}
+
+Le physicien \cite{Tsallis1988} propose une classe de mesures appelée entropie généralisée, définie par \cite{Havrda1967} pour la première fois (en cybernétique) et redécouverte plusieurs fois, notamment par \cite{Daroczy1970} (en théorie de l'information), d'où son nom \emph{entropie HCDT} (voir \cite{Mendes2008}, page 451, pour un historique complet).
+
+Tsallis a montré que les indices de Simpson et de Shannon étaient des cas particuliers d'entropie généralisée.
+Ces résultats ont été complétés par d'autres et repris en écologie par \cite{Keylock2005} et \cite{Jost2006, Jost2007}.
+
+L'entropie HCDT est particulièrement attractive parce que sa relation avec la diversité au sens strict est simple, après introduction du formalisme adapté: celui des logarithmes déformés \citep{Tsallis1994}.
+Le logarithme déformé d'ordre $q$ est une fonction définie de façon que l'entropie HCDT puisse être écrite comme l'entropie de Shannon, en le substituant au logarithme naturel: l'entropie d'ordre $q$ est simplement le logarithme déformé de son nombre de Hill \citep{Marcon2014a}.
+
+\subsection{Phylodiversité}
+
+Les mesures neutres de la diversité considèrent que toutes les classes auxquelles les objets appartiennent sont différentes, sans que certaines soient plus différentes que d'autres.
+Par exemple, toutes les espèces sont équidistantes les unes des autres, qu'elles appartiennent au même genre ou à des familles différentes.
+Intuitivement, l'idée qu'une communauté de $S$ espèces toutes de genres différents est plus diverse qu'une communauté de $S$ espèces du même genre est satisfaisante.
+
+
+Il s'agit donc de caractériser la différence entre deux classes d'objets, puis de construire des mesures de diversité en rapport \citep{Pielou1975, May1990a, Cousins1991}.
+En écologie, ces différences sont fonctionnelles ou phylogénétiques, définissant la diversité fonctionnelle \citep{Tilman1997} ou la diversité phylogénétique (\foreignlanguage{english}{\emph{phylodiversity}}) \citep{Webb2006}.
+Les premières propositions de ce type d'indices sont dues à \cite{Rao1982}.
+
+Dans le cadre de la diversité phylogénétique traitée ici, les espèces sont placées dans un arbre représentant leur évolution.
+À partir de la racine de l'arbre (représentant l'ancêtre commun), une nouvelle période est définie à chaque ramification d'une branche quelconque jusqu'aux espèces présentes placées aux extrêmités des dernières branches.
+La longueur des branches représente le temps de l'évolution.
+
+L'entropie HCDT est calculée à chaque période.
+L'entropie phylogénétique \citep{Marcon2014a} est l'entropie moyenne calculée tout au long des périodes de l'arbre.
+Elle s'interprète comme l'information moyenne apportée par un individu observé au hasard, à une temps choisi au hasard.
+Elle peut être transformée en diversité de la même façon.
+
+
+\section[Diversité beta et décomposition]{Diversité $\beta$ et décomposition}
+
+La notion de diversité $\beta$ a été introduite par \cite[][page 320]{Whittaker1960} comme le niveau de changement dans la composition des communautés, ou le degré de différenciation des communautés, en relation avec les changements de milieu. 
+La traduction de cette notion intuitive en une définition sans ambiguïté est encore une question de recherche et de débats. 
+\cite{Anderson2011} fournissent une revue des analyses utiles de la diversité $\beta$ en forme de guide à destination des écologues.
+
+
+Trois niveaux de diversité sont définis: la diversité locale, ou $\alpha$ est la diversité moyenne de plusieurs communautés, définie comme précédemment.
+La diversité $\gamma$ est celle de leur assemblage, mesurée de la même façon mais sans distinction de l'appartenance à telle ou telle communauté.
+Enfin, la diversité $\beta$, conceptuellement assez différente, mesure à quel point chacune des communauté est différente de l'assemblage \cite{Marcon2012a}.
+
+La décomposition de la diversité relie ces trois mesures: l'entropie $\beta$ est la différence entre les entropies $\gamma$ et $\alpha$ : c'est l'information supplémentaire apportée par la connaissance de la composition de chaque communauté en plus de la connaissance de leur seul assemblage \citep{Marcon2014a}.
+La diversité $\beta$ au sens strict est le rapport entre les diversités $\gamma$ et $\alpha$: il s'agit du nombre effectif de communautés, c'est à dire le nombres de communautés sans espèces communes qui fourniraient la même diversité $\beta$ que les communautés observées.
+
+Il est possible de décomposer hiérarchiquement la diversité \citep{Pavoine2015a} au-delà de deux niveaux en considérant chaque communauté comme un assemblage de sous-communautés plus petites : la diversité $\alpha$ devient la diversité $\gamma$ à une échelle plus détaillée.
+
+
+
+\subsection{Entropie et diversité}
+
+
+L'entropie est utile pour les calculs: la correction des biais d'estimation notamment.
+Elle mesure l'information moyenne apportée par la connaissance des fréquences relatives des espèces, ce qui est conceptuellement clair mais numériquement peu intuitif.
+Les nombres de Hill, ou \emph{nombres équivalent d'espèces} ou \emph{nombres d'espèces effectives} permettent une appréhension plus intuitive de la notion de biodiversité \citep{Jost2006}.
+En raison de leurs propriétés, notamment de décomposition, \cite{Jost2007} les appelle \og vraie diversité\fg{}.
+La diversité $\gamma$, nombre effectif d'espèces, se décompose en un nombre de communautés (diversité $\beta$) sans espèces communes possédant chacune le même nombre d'espèces équiprobables (diversité $\alpha$).
+
+
+L'intérêt de ces approches est de fournir une définition paramétrique de la diversité, qui donne plus ou moins d'importance aux espèces rares.
+
+
+
+\section{Transfert à l'économie géographique des méthodes de la biodiversité}
+
+Les recherches sur la structure spatiale de l'activité économique se sont principalement intéressées à la concentration spatiale, source d'externalités positives \citep{Marshall1890, Weber1909, Krugman1991}.
+La concentration spatiale va de pair avec la spécialisation \citep{Houdebine1999, Cutrini2010}.
+Le cadre conceptuel est le suivant: des employés peuvent être localisés dans une région quelconque d'un pays donné, et travailler dans un secteur économique quelconque.
+Les données sont le nombre d'employés de chaque secteur dans chaque région.
+Sous l'hypothèse nulle d'une distribution non structurée, la connaissance de la taille relative de chaque secteur et de chaque région donne l'espérance de ce nombre.
+La concentration spatiale d'un secteur économique mesurée par l'indice d'Ellison et Glaeser \citep{Ellison1997} est l'écart entre la part de chaque région dans ce secteur et la taille relative des régions.
+De façon symétrique, la spécialisation d'une région peut être définie comme l'écart de la distribution des poids relatifs de ses secteurs économiques à leurs poids dans l'ensemble du pays.
+Les deux peuvent être combinés pour définir une mesure de diversité jointe \citep{Gregorius2010}, écart entre la distribution des couples secteur $\times$ région et leur valeur attendue en absence de structuration.
+\cite{Cutrini2010} a défini cette diversité jointe, mesurée par l'entropie de Shannon, comme un \og indice de localisation globale\fg{}.
+
+Les développements méthodologiques du domaine de la diversité peuvent être appliqués à ce cadre pour généraliser cette mesure de localisation globale à l'entropie HCDT.
+La spécialisation est l'écart entre la diversité et sa valeur maximale.
+La diversité économique d'une région peut être calculée par les méthodes de la biodiversité, donnnant un poids arbitraire aux secteurs de petite taille.
+La concentration spatiale est la même mesure du point de vue des secteurs plutôt que des régions, permettant l'application des mêmes méthodes en transposant simplement la matrice des données.
+
+Les problèmes classiques de sensibilité des mesures de concentration spatiale et de spécialisation en espace discret \citep{Arbia1989, Openshaw1979} peuvent être largement réduits en considérant l'emboîtement des échelles spatiales ou des secteurs économiques plus ou moins agrégés de la même façon qu'une phylogénie.
+\`A titre d'exemple, le problème d'échelle est l'incohérence des mesures de concentration géographique considérées à des échelles différentes.
+Sa résolution théorique est immédiate dans le cadre de la décomposition de la diversité présentée dans la section précédente: la concentration (ou la spécialisation) à un niveau agrégé (par exemple un pays) est égale à sa valeur moyenne au niveau désagrégé (par exemple les régions de ce pays) à laquelle s'ajoute la divergence entre régions (analogue à la diversité $\beta$) dont l'ignorance est le fondement du problème.
+
+D'autre part, les mesures de concentraton spatiale dépendent du niveau d'agrégation des secteurs économiques auxquelles elles sont appliquées, au point de fausser les comparaisons entre secteurs \citep{Bickenbach2013}. 
+L'indépendance est une des propriétés des mesures de concentration spatiales requises par \cite{Combes2004}.
+La diversité phylogénétique est un outil pour régler ce problème en  prenant en compte l'arborescence complète de la classification sectorielle.
+
+L'article détaillera ces mesures et les illustrera par un exemple traité en détail.
+
+
+\bibliographystyle{mee}
+\bibliography{../library}
+
+\end{document}
