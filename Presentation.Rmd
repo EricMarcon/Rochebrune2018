@@ -1,16 +1,18 @@
 ---
 title: "Mesure de la biodiversité et de la structuration spatiale de l'activité économique par l'entropie"
-author: ""
+author: ''
 date: "14 janvier 2018"
 output:
+  slidy_presentation: default
+  ioslides_presentation:
+    logo: EcoFoG2017.png
   beamer_presentation:
     df_print: kable
-    fig_caption: false
+    fig_caption: no
     includes:
       in_header: EcoFoGBeamer.tex
     keep_tex: yes
     slide_level: 2
-  slidy_presentation: default
 bibliography: entropie.bib
 ---
 ```{r setup, include=FALSE}

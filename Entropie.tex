@@ -121,7 +121,7 @@
 %----------------------------------------------------------------------------------------
 
 \JournalInfo{Journées de Rochebrune 2018} % Journal information
-\Archive{} % Additional notes (e.g. copyright, DOI, review/research article)
+\Archive{\ }
 
 \PaperTitle{Mesure de la biodiversité et de la structuration spatiale de l'activité
 économique par l'entropie} % Article title
@@ -386,16 +386,17 @@ sa nouvelle formulation du second principe de la thermodynamique énoncé
 par Carnot 40 ans plus tôt. Son étymologie grecque signifie
 \emph{transformation} parce que le second principe concerne la variation
 d'entropie. Boltzmann a caractérisé l'entropie d'un système complexe (un
-gaz, donc chaque particule peut avoir plusieurs états possibles) en
-1877. \citet{Shannon1948} a enfin montré que le nombre d'états possibles
-d'un système est analogue au nombre de messages d'une longueur choisie
-pouvant être créés en assemblant les lettres d'un alphabet dont les
-fréquences des lettres sont fixées. L'entropie de Shannon est, à une
-constante près, égale à celle de Boltzmann normalisée par la longueur du
-message, dont elle est indépendante. Cette propriété fondamentale lui
-permet de décrire la complexité d'un système non seulement par le nombre
-possible de ses états, mais plus simplement par la fréquence relative de
-ses composants, donnant naissance à la théorie de l'information.
+gaz, donc chaque particule peut avoir plusieurs états possibles) en 1877
+\citep{Sharp2015}. \citet{Shannon1948} a enfin montré que le nombre
+d'états possibles d'un système est analogue au nombre de messages d'une
+longueur choisie pouvant être créés en assemblant les lettres d'un
+alphabet dont les fréquences des lettres sont fixées. L'entropie de
+Shannon est, à une constante près, égale à celle de Boltzmann normalisée
+par la longueur du message, dont elle est indépendante. Cette propriété
+fondamentale lui permet de décrire la complexité d'un système non
+seulement par le nombre possible de ses états, mais plus simplement par
+la fréquence relative de ses composants, donnant naissance à la théorie
+de l'information.
 
 La pertinence de l'entropie comme mesure de diversité en découle
 directement: un système est d'autant plus divers qu'il peut avoir un
@@ -1095,7 +1096,11 @@ concentration spatiale.
 %----------------------------------------------------------------------------------------
 
 \bibliographystyle{mee}
-\bibliography{../library}
+\makeatletter
+\filename@parse{entropie.bib}
+\bibliography{\filename@base}
+\makeatother
+
 
 %----------------------------------------------------------------------------------------
 

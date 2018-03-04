@@ -1,5 +1,5 @@
 ---
-title: Mesure de la biodiversité et de la structuration spatiale de l'activité économique par l'entropie
+title: "Mesure de la biodiversité et de la structuration spatiale de l'activité économique par l'entropie"
 author:
   - name: Eric Marcon
     authsuperscript: 1*
@@ -32,16 +32,16 @@ preamble: >
     \oldthebibliography{#1}%
     \setlength{\parskip}{\bibitemsep}%
     \setlength{\itemsep}{\bibparskip}%
-  }
 bibliography: entropie.bib
 lang: french # english
 keywordlabel: Mots-clés # Keywords
 corrauthorlabel: Contact # Corresponding author
 output:
-  bookdown::gitbook
-#  bookdown::pdf_book:
-#    base_format: EcoFoG::article
-#    keep_tex: TRUE
+  bookdown::gitbook: default
+  bookdown::pdf_book:
+    base_format: EcoFoG::article
+    keep_tex: TRUE
+  bookdown::word_document2: default
 ---
 
 <!-- Options de knitr et de R (librairies, ...) --> 

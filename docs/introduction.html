@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie</title>
   <meta name="description" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie" />
   <meta property="og:type" content="book" />
@@ -117,7 +117,7 @@ div.abstract{
 <div id="header">
 <h1 class="title">Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie</h1>
 <h4 class="author"><em>Eric Marcon</em></h4>
-<h4 class="date"><em>27 janvier 2018</em></h4>
+<h4 class="date"><em>04 mars 2018</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>Les mesures de la concentration spatiale et de la spécialisation en économie sont très similaires à celles de la biodiversité et de l’ubiquité des espèces en écologie. Les développements méthodologiques sont plus avancés en écologie, ce qui motive ce travail de transfert interdisciplinaire. L’entropie est la notion fondamentale, issue de la physique statistique et la théorie de l’information, utilisée pour mesurer la concentration et la spécialisation. La notion de nombre effectif, qui est un nombre de catégories dans une distribution idéale simplifiée, est introduite. La décomposition de la diversité totale d’une distribution (la localisation globale en économie) en concentration ou spécialisation absolue et relative et en redondance, est présentée. L’ensemble fournit un cadre théorique complet et robuste pour mesurer la structuration spatiale en espace discret.</p>
@@ -182,9 +182,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

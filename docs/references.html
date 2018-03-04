@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie</title>
   <meta name="description" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie" />
   <meta property="og:type" content="book" />
@@ -289,6 +289,9 @@ div.abstract{
 <p>Shannon, Claude E. 1948. « A Mathematical Theory of Communication ». <em>The Bell System Technical Journal</em> 27: 379‑423, 623‑56.</p>
 </div>
 <div>
+<p>Sharp, Kim, et Franz Matschinsky. 2015. « Translation of Ludwig Boltzmann’s paper “on the relationship between the second fundamental theorem of the mechanical theory of heat and probability calculations regarding the conditions for thermal equilibrium” ». <em>Entropy</em> 17 (4): 1971‑2009. doi:<a href="https://doi.org/10.3390/e17041971">10.3390/e17041971</a>.</p>
+</div>
+<div>
 <p>Shorrocks, A. F. 1980. « The Class of Additively Decomposable Inequality Measures ». <em>Econometrica</em> 48 (3): 613. doi:<a href="https://doi.org/10.2307/1913126">10.2307/1913126</a>.</p>
 </div>
 <div>
@@ -378,9 +381,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
